@@ -66,7 +66,7 @@ document.getElementById('askForm').addEventListener('submit', async function(e) 
     };
     
     try {
-      const apiUrl = 'https://callfunctions-backend.vercel.app/ask?question=' + encodeURIComponent(question);
+      const apiUrl = 'https://callfunctionbackend-1.onrender.com/ask?question=' + encodeURIComponent(question);
       
       console.log("Conectando a:", apiUrl);
       
