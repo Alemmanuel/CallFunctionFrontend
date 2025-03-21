@@ -22,22 +22,29 @@ document.getElementById('askForm').addEventListener('submit', async function(e) 
     resultDiv.textContent = mensajeAleatorio;
     
     try {
-      // URL del backend en Vercel (deberás actualizarla con tu dominio real)
-      const backendUrl = 'https://callfunctions-backend.vercel.app/ask?question=' + encodeURIComponent(question);
-      // Alternativa para desarrollo local
-      // const backendUrl = 'http://localhost:3000/ask?question=' + encodeURIComponent(question);
+      // URL CORREGIDA - usando el formato correcto para la consulta
+      const apiUrl = 'https://callfunctions-backend.vercel.app/ask?question=' + encodeURIComponent(question);
       
-      const response = await fetch(backendUrl);
+      console.log("Conectando a:", apiUrl); // Para depuración
+      
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+      
       if (!response.ok) {
         throw new Error("Error en la respuesta del servidor");
       }
+      
       const data = await response.json();
       
       // Mostrar la respuesta completa
       resultDiv.textContent = data.response;
       
     } catch (error) {
-      resultDiv.textContent = 'Error obteniendo la respuesta';
-      console.error(error);
+      resultDiv.textContent = `Error: ${error.message}`;
+      console.error("Error completo:", error);
     }
-  });
+});
