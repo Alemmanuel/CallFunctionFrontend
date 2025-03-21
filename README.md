@@ -74,4 +74,4 @@ Don't just ask questions - experience answers that will transform your understan
 
 ## 📩 Contact
 
-Any questions please contact me at alemmanuel0412@gmail.com(alemmanuel0412@gmail.com)
+Any questions please contact me at alemmanuel0412@gmail.com
